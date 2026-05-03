@@ -1,0 +1,25 @@
+name: Build Mod
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create archive
+        run: |
+          mkdir build
+          cp -r res_mods build/res
+          cd build
+          zip -r -0 ../boykisser_mod.wotmod .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: boykisser_mod
+          path: boykisser_mod.wotmod
