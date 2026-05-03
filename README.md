@@ -1,6 +1,6 @@
 # Boykisser mod for World of Tanks UwU
 
-<img src="github/images/leopard1.jpg" width="600">
+<img src="github/images/leopard.jpg" width="600">
 
 ## 🎯 Roadmap
 
