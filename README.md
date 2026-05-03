@@ -1,4 +1,4 @@
-# Boykisser mod for World of Tanks UwU
+# Boykisser mod for World of Tanks >⩊<
 
 <img src="github/images/leopard.jpg" width="600">
 
