@@ -16,7 +16,7 @@ jobs:
           mkdir build
           cp -r res_mods build/res
           cd build
-          zip -r -0 ../boykisser_mod.wotmod res
+          zip -r -0 -X ../boykisser_mod.wotmod res
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
