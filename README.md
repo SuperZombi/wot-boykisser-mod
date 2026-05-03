@@ -2,7 +2,12 @@
 
 <img src="github/images/leopard.jpg" width="600">
 
-## 🎯 Roadmap
+### This mod contains two separate mods:
+
+- 🐾 Pawmarks: Replaces all marks of distinction with paw prints.
+- 🎨 Boykisser Mod: Redesigns vehicle camouflage.
+
+## 🎯 List of supported tanks (this list will be expanded in the future):
 
 - [x] Leopard 1
 - [ ] CS-63
