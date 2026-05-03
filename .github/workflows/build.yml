@@ -4,6 +4,47 @@ on:
   workflow_dispatch:
 
 jobs:
+  gunmarks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build wotmod
+        run: |
+          set -e
+
+          OUT_DIR=build/res/gui/maps/vehicles/decals/insignia
+          mkdir -p "$OUT_DIR"
+
+          nations=(
+            china
+            czech
+            france_uk
+            germany
+            italian
+            japan
+            poland
+            sweden
+            usa
+            ussr
+          )
+
+          for nation in "${nations[@]}"; do
+            for i in 1 2 3; do
+              cp "src/gunmarks/gun_${i}.dds" "$OUT_DIR/gun_${nation}_${i}.dds"
+            done
+          done
+
+          cd build
+          zip -r -0 -X ../pawmarks.wotmod .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pawmarks
+          path: pawmarks.wotmod
+
   build:
     runs-on: ubuntu-latest
 
