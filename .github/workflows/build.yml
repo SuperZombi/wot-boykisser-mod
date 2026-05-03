@@ -64,3 +64,32 @@ jobs:
         with:
           name: boykisser_mod
           path: boykisser_mod.wotmod
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [gunmarks, build]
+
+    steps:
+      - name: Download pawmarks
+        uses: actions/download-artifact@v4
+        with:
+          name: pawmarks
+          path: artifacts
+
+      - name: Download boykisser_mod
+        uses: actions/download-artifact@v4
+        with:
+          name: boykisser_mod
+          path: artifacts
+
+      - name: Create release archive
+        run: |
+          cd artifacts
+          zip -r ../boykisser_mod.zip .
+
+      - name: Upload
+        uses: xresloader/upload-to-github-release@v1
+        with:
+          file: boykisser_mod.zip
+          overwrite: true
+          update_latest_release: true
