@@ -60,10 +60,15 @@ jobs:
 
           for tank_dir in res_mods/*/; do
             tank=$(basename "$tank_dir")
+            tmp="tmp_${tank}"
 
-            cd "${tank_dir}"
-            zip -r -0 -X "../../build/boykisser_${tank}.wotmod" .
-            cd ../..
+            mkdir -p "${tmp}/res"
+            cp -r "${tank_dir}/." "${tmp}/res/"
+
+            cd "${tmp}"
+            zip -r -0 -X "../build/boykisser_${tank}.wotmod" res
+            cd ..
+            rm -rf "${tmp}"
           done
 
       - name: Upload artifacts
