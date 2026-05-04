@@ -6,46 +6,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  gunmarks:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+  # gunmarks:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repo
+  #       uses: actions/checkout@v4
 
-      - name: Build wotmod
-        run: |
-          set -e
+  #     - name: Build wotmod
+  #       run: |
+  #         set -e
 
-          OUT_DIR=build/res/gui/maps/vehicles/decals/insignia
-          mkdir -p "$OUT_DIR"
+  #         OUT_DIR=build/res/gui/maps/vehicles/decals/insignia
+  #         mkdir -p "$OUT_DIR"
 
-          nations=(
-            china
-            czech
-            france_uk
-            germany
-            italian
-            japan
-            poland
-            sweden
-            usa
-            ussr
-          )
+  #         nations=(
+  #           china
+  #           czech
+  #           france_uk
+  #           germany
+  #           italian
+  #           japan
+  #           poland
+  #           sweden
+  #           usa
+  #           ussr
+  #         )
 
-          for nation in "${nations[@]}"; do
-            for i in 1 2 3; do
-              cp "src/gunmarks/gun_${i}.dds" "$OUT_DIR/gun_${nation}_${i}.dds"
-            done
-          done
+  #         for nation in "${nations[@]}"; do
+  #           for i in 1 2 3; do
+  #             cp "src/gunmarks/gun_${i}.dds" "$OUT_DIR/gun_${nation}_${i}.dds"
+  #           done
+  #         done
 
-          cd build
-          zip -r -0 -X ../pawmarks.wotmod .
+  #         cd build
+  #         zip -r -0 -X ../pawmarks.wotmod .
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: pawmarks
-          path: pawmarks.wotmod
+  #     - name: Upload artifact
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: pawmarks
+  #         path: pawmarks.wotmod
 
   build:
     runs-on: ubuntu-latest
@@ -54,44 +54,49 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Create archive
+      - name: Create per-tank mods
         run: |
-          mkdir build
-          cp -r res_mods build/res
-          cd build
-          zip -r -0 -X ../boykisser_mod.wotmod res
+          mkdir -p build
 
-      - name: Upload artifact
+          for tank_dir in res_mods/*/; do
+            tank=$(basename "$tank_dir")
+
+            cd "${tank_dir}"
+            zip -r -0 -X "../../build/boykisser_${tank}.wotmod" .
+            cd ../..
+          done
+
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: boykisser_mod
-          path: boykisser_mod.wotmod
+          name: boykisser_mods
+          path: build/*.wotmod
 
-  release:
-    runs-on: ubuntu-latest
-    needs: [gunmarks, build]
+  # release:
+  #   runs-on: ubuntu-latest
+  #   needs: [gunmarks, build]
 
-    steps:
-      - name: Download pawmarks
-        uses: actions/download-artifact@v4
-        with:
-          name: pawmarks
-          path: artifacts
+  #   steps:
+  #     - name: Download pawmarks
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: pawmarks
+  #         path: artifacts
 
-      - name: Download boykisser_mod
-        uses: actions/download-artifact@v4
-        with:
-          name: boykisser_mod
-          path: artifacts
+  #     - name: Download boykisser_mod
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: boykisser_mod
+  #         path: artifacts
 
-      - name: Create release archive
-        run: |
-          cd artifacts
-          zip -r ../boykisser_mod.zip .
+  #     - name: Create release archive
+  #       run: |
+  #         cd artifacts
+  #         zip -r ../boykisser_mod.zip .
 
-      - name: Upload
-        uses: xresloader/upload-to-github-release@v1
-        with:
-          file: boykisser_mod.zip
-          overwrite: true
-          update_latest_release: true
+  #     - name: Upload
+  #       uses: xresloader/upload-to-github-release@v1
+  #       with:
+  #         file: boykisser_mod.zip
+  #         overwrite: true
+  #         update_latest_release: true
