@@ -34,7 +34,7 @@ jobs:
 
           for nation in "${nations[@]}"; do
             for i in 1 2 3; do
-              cp "src/gunmarks/gun_${i}.dds" "$OUT_DIR/gun_${nation}_${i}.dds"
+              cp "gunmarks/gun_${i}.dds" "$OUT_DIR/gun_${nation}_${i}.dds"
             done
           done
 
