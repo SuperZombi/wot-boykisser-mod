@@ -10,8 +10,8 @@
 ## 🎯 List of supported tanks (this list will be expanded in the future):
 
 - [x] Leopard 1
-- [ ] CS-63
 - [ ] Lion
+- [ ] CS-63
 - [ ] Progetto 65
 - [ ] Carro 45t
 - [ ] STB-1
