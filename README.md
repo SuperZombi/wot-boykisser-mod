@@ -8,7 +8,7 @@
 <img src="github/images/lion.jpg" width="600">
 
 ### This mod contains two separate mods:
-- 🐾 Pawmarks: Replaces all marks of distinction with paw prints.
+- 🐾 Pawmarks: Replaces all marks of distinction with paw.
 - 🎨 Boykisser Mod: Redesigns tank camouflages.
 
 ### Installation:
