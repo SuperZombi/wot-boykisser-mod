@@ -10,7 +10,7 @@
 - 🎨 Boykisser Mod: Redesigns tank camouflages.
 
 ### Installation:
-- Download archive
+- [Download archive](https://github.com/SuperZombi/wot-boykisser-mod/releases/latest/download/boykisser_mod.zip)
 - Unzip it to to `WoT/mods/{verison}/`
 
 ## 🎯 List of supported tanks (this list will be expanded in the future):
