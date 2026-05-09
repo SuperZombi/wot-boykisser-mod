@@ -1,6 +1,7 @@
 # Boykisser mod for World of Tanks >⩊<
 
 <img src="github/images/leopard.jpg" width="600">
+<img src="github/images/lion.jpg" width="600">
 
 ### This mod contains two separate mods:
 
@@ -10,7 +11,7 @@
 ## 🎯 List of supported tanks (this list will be expanded in the future):
 
 - [x] Leopard 1
-- [ ] Lion
+- [x] Lion
 - [ ] CS-63
 - [ ] Progetto 65
 - [ ] Carro 45t
