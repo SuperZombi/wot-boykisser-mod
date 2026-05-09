@@ -6,9 +6,12 @@
 <img src="github/images/lion.jpg" width="600">
 
 ### This mod contains two separate mods:
-
 - 🐾 Pawmarks: Replaces all marks of distinction with paw prints.
-- 🎨 Boykisser Mod: Redesigns vehicle camouflage.
+- 🎨 Boykisser Mod: Redesigns tank camouflages.
+
+### Installation:
+- Download archive
+- Unzip it to to `WoT/mods/{verison}/`
 
 ## 🎯 List of supported tanks (this list will be expanded in the future):
 
