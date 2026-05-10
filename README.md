@@ -2,7 +2,7 @@
 
 <a href="https://github.com/SuperZombi/wot-boykisser-mod/releases/latest/download/boykisser_mod.zip"><img src="https://shields.io/badge/⇩-Download-blue"></a>&ensp;
 <a href="https://wgmods.net/7652/"><img src="https://shields.io/badge/🌐-WGmods-f9b723"></a>&ensp;
-<a href="#donate"><img src="https://shields.io/badge/💲-Support_the_Project-2ea043"></a>
+<a href="#donate"><img src="https://shields.io/badge/💲-Support-2ea043"></a>
 
 <img src="github/images/leopard.jpg" width="600">
 <img src="github/images/lion.jpg" width="600">
